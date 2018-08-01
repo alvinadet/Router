@@ -10,21 +10,9 @@ class App extends Component {
     page: 'home'
   };
 
-  toHome = () => {
+  handleClick = param => {
     this.setState({
-      page: 'home'
-    });
-  };
-
-  toAbout = () => {
-    this.setState({
-      page: 'about'
-    });
-  };
-
-  toContact = () => {
-    this.setState({
-      page: 'contact'
+      page: param
     });
   };
 
@@ -35,9 +23,24 @@ class App extends Component {
         {this.state.page == 'about' && <AboutContainer />}
         {this.state.page == 'contact' && <ContactContainer />}
 
-        <button onClick={this.toHome}>Home</button>
-        <button onClick={this.toAbout}>About</button>
-        <button onClick={this.toContact}>Contact</button>
+        <button
+          onClick={() => {
+            this.handleClick('home');
+          }}>
+          Home
+        </button>
+        <button
+          onClick={() => {
+            this.handleClick('about');
+          }}>
+          About
+        </button>
+        <button
+          onClick={() => {
+            this.handleClick('contact');
+          }}>
+          Contact
+        </button>
       </div>
     );
   }
